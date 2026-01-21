@@ -1,65 +1,189 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { motion } from "framer-motion";
+import { Calendar, Users, Headphones } from "lucide-react";
+import NavbarLanding from "@/components/NavbarLanding"; // 🔥 pakai navbar component
+
+export default function LandingPage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      {/* NAVBAR COMPONENT */}
+      <NavbarLanding />
+
+      {/* HERO SECTION */}
+      <section className="min-h-screen pt-32 bg-white">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 px-5">
+          
+          {/* LEFT TEXT */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col justify-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            {/* Logo & Title */}
+            <div className="flex items-center gap-3 mb-6">
+              <img src="/logo-tb.png" className="w-14 h-14" alt="Logo" />
+              <div>
+                <h2 className="text-2xl font-bold text-[#0046FF]">
+                  E-BK SMK Taruna Bhakti
+                </h2>
+                <p className="text-gray-600 text-sm">
+                  Sistem Informasi Bimbingan Konseling
+                </p>
+              </div>
+            </div>
+
+            <h1 className="text-4xl md:text-6xl font-bold text-[#0046FF] leading-tight">
+              Sistem Informasi <br /> Bimbingan Konseling <br /> SMK Taruna Bhakti
+            </h1>
+
+            <p className="mt-5 text-lg text-gray-600 max-w-md">
+              Layanan BK digital mulai dari penjadwalan, konsultasi,
+              pengelolaan data, hingga riwayat pertemuan.
+            </p>
+
+            <div className="mt-8">
+              <button
+                onClick={() => (window.location.href = "/auth/login")}
+                className="px-6 py-3 bg-[#6E8CFB] text-white font-semibold rounded-lg hover:opacity-90 transition"
+              >
+                Mulai Sekarang
+              </button>
+            </div>
+          </motion.div>
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7 }}
+            className="flex justify-center items-center"
+          >
+            <img
+              src="/logo-konseling.png"
+              className="w-[90%] drop-shadow-xl"
+              alt="Konseling"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </motion.div>
         </div>
-      </main>
-    </div>
+      </section>
+
+    <section id="fitur" className="py-20 bg-white">
+<div className="max-w-7xl mx-auto px-6">
+<h2 className="text-3xl md:text-4xl font-bold text-center text-[#0046FF] mb-14">
+Layanan yang Tersedia
+</h2>
+
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+
+{/* KARTU 1 — BUAT JANJI BK */}
+<div className="p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition cursor-pointer border border-gray-200">
+<div className="flex justify-center mb-6">
+<Calendar className="text-[#0046FF]" size={50} />
+</div>
+<h3 className="text-2xl font-bold text-[#0046FF] text-center mb-3">
+Buat Janji BK
+</h3>
+<p className="text-gray-600 text-center text-sm leading-relaxed">
+Siswa dapat mengajukan konsultasi kapan saja.
+</p>
+</div>
+
+
+{/* KARTU 2 — CATATAN KONSELING */}
+<div className="p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition cursor-pointer border border-gray-200">
+<div className="flex justify-center mb-6">
+<Users className="text-[#0046FF]" size={50} />
+</div>
+<h3 className="text-2xl font-bold text-[#0046FF] text-center mb-3">
+Catatan Konseling Pribadi
+</h3>
+<p className="text-gray-600 text-center text-sm leading-relaxed">
+Semua curhatan & saran dari BK tersimpan rapi di sini.
+</p>
+</div>
+
+
+{/* KARTU 3 — EMERGENCY SUPPORT */}
+<div className="p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition cursor-pointer border border-gray-200">
+<div className="flex justify-center mb-6">
+<Headphones className="text-[#0046FF]" size={50} />
+</div>
+<h3 className="text-2xl font-bold text-[#0046FF] text-center mb-3">
+Emergency Support (24/7)
+</h3>
+<p className="text-gray-600 text-center text-sm leading-relaxed">
+Terhubung dalam hitungan menit dengan guru BK.
+</p>
+</div>
+
+
+</div>
+</div>
+</section>
+
+
+      {/* TENTANG SECTION */}
+      <section id="tentang" className="py-24 bg-white">
+        <div className="max-w-6xl mx-auto px-5 grid grid-cols-1 md:grid-cols-2 gap-12">
+          
+          {/* LEFT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="flex justify-center items-center"
+          >
+            <img
+              src="/smk-tb.png"
+              className="w-[90%] rounded-2xl shadow-lg"
+              alt="SMK TB"
+            />
+          </motion.div>
+
+          {/* RIGHT TEXT */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="flex flex-col justify-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0046FF] mb-5">
+              Tentang Layanan BK SMK Taruna Bhakti
+            </h2>
+
+            <p className="text-gray-600 leading-relaxed text-lg">
+              Bimbingan Konseling hadir untuk membantu siswa dalam pengembangan pribadi,
+              sosial, akademik, dan karier. E-BK membuat layanan ini lebih mudah diakses
+              dan efisien.
+            </p>
+
+            <p className="mt-4 text-gray-600 leading-relaxed text-lg">
+              Dengan sistem digital, siswa dapat membuat janji BK, melihat riwayat,
+              dan berkomunikasi dengan guru BK secara efektif.
+            </p>
+
+            <div className="mt-6 p-5 bg-[#f5f7ff] border-l-4 border-[#0046FF] rounded">
+              <p className="text-[#0046FF] font-semibold text-lg">
+                “E-BK membantu siswa mendapatkan pendampingan terbaik secara cepat dan aman.”
+              </p>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="py-6 bg-white border-t">
+        <div className="text-center text-gray-600 text-sm">
+          © {new Date().getFullYear()} E-BK SMK Taruna Bhakti  — Dikembangkan Oleh Siswa RPL
+        </div>
+      </footer>
+    </>
   );
 }

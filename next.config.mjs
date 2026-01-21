@@ -1,6 +1,15 @@
+// next.config.mjs
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
+    unoptimized: true, // INI SOLUSI RESMI NEXT.JS BUAT GAMBAR LOKAL!
+  },
 };
 
 export default nextConfig;
