@@ -1,1 +1,0 @@
-A role-based web application for managing student counseling sessions, teacher schedules, and administrative reporting using Next.js and MySQL.

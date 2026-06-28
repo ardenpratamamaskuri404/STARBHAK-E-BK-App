@@ -1,4 +1,0 @@
-- **Framework & Routing**: Built on Next.js 16 (App Router) with a file-system based routing structure separating public pages (`/auth`), role-specific dashboards (`/admin`, `/gurubk`, `/siswa`), and API routes (`/api`).
-- **Authentication & Authorization**: Implements NextAuth.js with a custom Credentials provider against a MySQL backend. Role-based access control (RBAC) is enforced via `middleware.js` for route protection and server-side session checks in API handlers.
-- **Data Layer**: Uses a centralized `mysql2` connection pool in `lib/database.js`. API routes interact directly with the database using parameterized queries, often employing transactions for multi-table writes (e.g., creating users and profiles).
-- **UI Architecture**: Utilizes a component-based structure with shared layout wrappers (`app/admin/layout.jsx`) and role-specific navigation bars. UI primitives are powered by Radix UI and styled with Tailwind CSS v4.
