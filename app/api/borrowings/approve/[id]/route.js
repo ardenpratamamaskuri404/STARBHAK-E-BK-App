@@ -11,11 +11,12 @@ export async function PUT(req, { params }) {
   }
 
   try {
+    const { id } = await params;
     await pool.query(
       `UPDATE borrows 
        SET status = 'approved', approved_at = NOW()
        WHERE id = ? AND teacher_id = ?`,
-      [params.id, session.user.id]
+      [id, session.user.id]
     );
 
     return NextResponse.json({ success: true });

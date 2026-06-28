@@ -9,9 +9,9 @@ export async function POST(req) {
         const hashed = await bcrypt.hash(password, 10);
 
         await query(
-            `INSERT INTO users (name, username, email, password, role_id, class_id)
-    VALUES (?, ?, ?, ?, 3, ?)`,
-            [name, username, email, hashed, class_id]
+            `INSERT INTO users (name, username, email, password, role, role_id)
+    VALUES (?, ?, ?, ?, 'siswa', 3)`,
+            [name, username, email, hashed]
         );
 
         return NextResponse.json({ message: "Siswa berhasil dibuat!" });

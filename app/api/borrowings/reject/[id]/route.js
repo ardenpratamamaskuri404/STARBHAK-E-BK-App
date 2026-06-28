@@ -11,9 +11,10 @@ export async function PUT(req, { params }) {
   }
 
   try {
+    const { id } = await params;
     const [result] = await pool.query(
       "UPDATE borrowings SET status = 'rejected' WHERE id = ? AND guru_id = ?",
-      [params.id, session.user.id]
+      [id, session.user.id]
     );
 
     if (result.affectedRows === 0) {

@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: frontend_style
+title: shadcn/ui + Tailwind CSS v4 Design System
+scope: []
+source_files:
+    - app/globals.css
+    - components.json
+    - package.json
+    - postcss.config.mjs
+    - components/ui/button.jsx
+    - components/ui/card.jsx
+    - lib/utils.js
+    - app/layout.js
+depends_on: []
+related_to: []

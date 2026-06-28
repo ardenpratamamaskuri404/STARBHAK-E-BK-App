@@ -16,27 +16,43 @@ export const authOptions = {
       async authorize(credentials) {
         const { identifier, password } = credentials;
 
-        if (!identifier || !password) return null;
+        // Trim whitespace dari input
+        const cleanIdentifier = identifier?.trim();
+
+        console.log("[AUTH] Login attempt:", { identifier: cleanIdentifier, hasPassword: !!password });
+
+        if (!cleanIdentifier || !password) {
+          console.log("[AUTH] Missing credentials");
+          return null;
+        }
 
         // Cari user berdasarkan email, nis, nip
         const rows = await query(
           `
           SELECT u.*
           FROM users u
-          LEFT JOIN siswa_profile sp ON sp.user_id = u.id
           LEFT JOIN guru_profile gp ON gp.user_id = u.id
           WHERE u.email = ?
-             OR sp.nis = ?
+             OR u.nis = ?
              OR gp.nip = ?
           LIMIT 1
           `,
-          [identifier, identifier, identifier]
+          [cleanIdentifier, cleanIdentifier, cleanIdentifier]
         );
 
+        console.log("[AUTH] Query result:", rows.length, "rows");
+
         const user = rows[0];
-        if (!user) return null;
+        if (!user) {
+          console.log("[AUTH] User not found");
+          return null;
+        }
+
+        console.log("[AUTH] User found:", user.name, user.email);
 
         const passwordMatch = await bcrypt.compare(password, user.password);
+        console.log("[AUTH] Password match:", passwordMatch);
+
         if (!passwordMatch) return null;
 
         // WAJIB return **objek clean**

@@ -1,0 +1,4 @@
+- API routes enforce role-based access by retrieving the server session via `getServerSession` and validating `session.user.role` before executing business logic.
+- Database write operations involving multiple tables (e.g., user creation with profile) use explicit MySQL transactions with `beginTransaction`, `commit`, and `rollback` on error.
+- Password hashing is consistently performed using `bcryptjs` with a salt round of 10 before storing user credentials.
+- API responses follow a consistent JSON structure, typically returning `{ success: boolean, message: string, data?: any }` or `{ error: string }` with appropriate HTTP status codes.

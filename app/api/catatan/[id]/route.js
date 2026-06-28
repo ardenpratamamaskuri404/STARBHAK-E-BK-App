@@ -9,7 +9,7 @@ export async function PUT(req, { params }) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const id = params.id;
+    const { id } = await params;
     const { judul, isi, kategori } = await req.json();
 
     await query(
@@ -31,9 +31,10 @@ export async function DELETE(req, { params }) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
+    const { id } = await params;
     await query(
       `DELETE FROM catatan_siswa WHERE id=? AND teacher_id=?`,
-      [params.id, session.user.id]
+      [id, session.user.id]
     );
 
     return Response.json({ success: true, message: "Catatan dihapus" });

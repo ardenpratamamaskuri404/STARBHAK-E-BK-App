@@ -1,0 +1,4 @@
+- **NextAuth.js v4**: Handles session management with JWT strategy and custom callbacks for role propagation.
+- **MySQL2**: Provides promise-based database connectivity with connection pooling.
+- **Tailwind CSS v4**: Used for styling, integrated via `@tailwindcss/postcss`.
+- **Radix UI**: Headless UI components for accessible interface elements (avatars, switches, labels).

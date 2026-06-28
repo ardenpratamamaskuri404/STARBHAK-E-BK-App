@@ -8,14 +8,14 @@ export async function GET() {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!session || session.user.role !== "siswa") {
+    if (!session || session.user.role !== "guru") {
       return Response.json({ success: false, error: "Unauthorized" }, { status: 401 });
     }
 
-    const siswaId = session.user.id;
+    const guruId = session.user.id;
 
-    if (!siswaId) {
-      return Response.json({ success: false, error: "ID siswa tidak ditemukan" }, { status: 400 });
+    if (!guruId) {
+      return Response.json({ success: false, error: "ID guru tidak ditemukan" }, { status: 400 });
     }
 
     const riwayat = await query(
@@ -23,18 +23,17 @@ export async function GET() {
       SELECT 
         b.id,
         b.status,
-        b.reason,
-        b.created_at,
-        b.preferred_datetime,
-        b.scheduled_datetime,
-        u.name AS guru_name
+        b.description,
+        b.requested_at,
+        b.scheduled_at,
+        u.name AS siswa_name
       FROM borrows b
-      JOIN users u ON u.id = b.teacher_id
-      WHERE b.student_id = ?
+      JOIN users u ON u.id = b.student_id
+      WHERE b.teacher_id = ?
         AND b.status IN ('approved', 'completed')
-      ORDER BY b.created_at DESC
+      ORDER BY b.requested_at DESC
       `,
-      [siswaId]
+      [guruId]
     );
 
     return Response.json({

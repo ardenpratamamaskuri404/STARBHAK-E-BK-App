@@ -23,7 +23,7 @@ export async function GET() {
           b.status,
           b.created_at,
           s.name AS siswa_name,
-          s.nis AS siswa_nis,
+          sp.nis AS siswa_nis,
           k.nama AS kelas_nama
        FROM borrowings b
        JOIN users s ON b.siswa_id = s.id

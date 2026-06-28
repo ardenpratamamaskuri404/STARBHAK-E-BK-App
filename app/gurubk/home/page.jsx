@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import NavbarGuru from "@/components/NavbarGuru";
 import { useRouter } from "next/navigation";
 import { User, Calendar, Clock, BookOpen, FilePlus, History, ChevronRight } from "lucide-react";
 
@@ -30,10 +29,7 @@ export default function GuruHome() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFF]">
-
-      <NavbarGuru />
-
-      <div className="p-8 mt-8">
+      <div className="p-8">
 
         {/* Sambutan */}
         <motion.div

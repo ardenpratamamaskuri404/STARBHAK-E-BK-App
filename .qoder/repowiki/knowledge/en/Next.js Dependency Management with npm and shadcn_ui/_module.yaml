@@ -1,0 +1,11 @@
+schema_version: 1
+module_path: dependency_management
+title: Next.js Dependency Management with npm and shadcn/ui
+scope: []
+source_files:
+    - package.json
+    - package-lock.json
+    - components.json
+    - next.config.mjs
+depends_on: []
+related_to: []

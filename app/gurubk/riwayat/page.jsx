@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import NavbarGuru from "@/components/NavbarGuru";
 import { motion } from "framer-motion";
 import { Clock, User, Printer } from "lucide-react";
 
@@ -21,9 +20,7 @@ export default function RiwayatGuru() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFF]">
-      <NavbarGuru />
-
-      <div className="p-8 pt-24">
+      <div className="p-8">
         <h1 className="text-3xl font-bold text-[#0046FF] mb-6">
           Riwayat Konseling
         </h1>

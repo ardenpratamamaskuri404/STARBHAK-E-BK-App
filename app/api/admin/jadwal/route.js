@@ -26,7 +26,7 @@ export async function GET() {
 
 // PATCH untuk approve/reject
 export async function PATCH(request, { params }) {
-    const { id } = params;
+    const { id } = await params;
     const { status } = await request.json();
 
     try {

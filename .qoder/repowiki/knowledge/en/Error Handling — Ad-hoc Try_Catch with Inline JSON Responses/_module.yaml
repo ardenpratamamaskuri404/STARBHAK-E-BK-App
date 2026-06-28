@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: error_handling
+title: Error Handling — Ad-hoc Try/Catch with Inline JSON Responses
+scope: []
+source_files:
+    - middleware.js
+    - lib/database.js
+    - app/api/auth/[...nextauth]/route.js
+    - app/api/admin/guru/route.js
+    - app/api/admin/guru/[id]/route.js
+    - app/api/borrowings/route.js
+    - app/api/siswa/pengajuan/route.js
+    - app/unauthorized/page.jsx
+depends_on: []
+related_to: []

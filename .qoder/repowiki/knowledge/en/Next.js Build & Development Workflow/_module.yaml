@@ -1,0 +1,13 @@
+schema_version: 1
+module_path: build_system
+title: Next.js Build & Development Workflow
+scope: []
+source_files:
+    - package.json
+    - next.config.mjs
+    - seed.js
+    - postcss.config.mjs
+    - eslint.config.mjs
+    - README.md
+depends_on: []
+related_to: []

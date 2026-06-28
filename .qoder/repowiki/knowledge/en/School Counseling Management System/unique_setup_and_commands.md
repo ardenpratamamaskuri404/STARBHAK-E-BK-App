@@ -1,0 +1,3 @@
+- **Database Initialization**: Requires manual execution of `databasebk.sql` to create the `db_projectbk` schema and seed initial data.
+- **Environment Configuration**: Relies on `.env` for `NEXTAUTH_SECRET`, `DB_HOST`, `DB_USER`, `DB_PASS`, and `DB_NAME`.
+- **Development**: Standard Next.js workflow via `npm run dev`.

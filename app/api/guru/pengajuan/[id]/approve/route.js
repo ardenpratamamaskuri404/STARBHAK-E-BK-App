@@ -12,7 +12,7 @@ export async function POST(request, { params }) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
     }
 
-    const { id } = params;
+    const { id } = await params;
     const teacherId = session.user.id;
 
     // 1. Cek apakah pengajuan ada & milik guru yang login

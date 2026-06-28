@@ -43,7 +43,7 @@ export default function CatatanBKPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAFF] flex justify-center items-start p-6 pt-24">
+    <div className="min-h-screen bg-[#F8FAFF] flex justify-center items-start p-6">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

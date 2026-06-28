@@ -45,13 +45,13 @@ export async function GET() {
       SELECT 
         b.id,
         s.name AS student_name,
-        b.reason AS summary,
-        b.created_at
+        b.description AS summary,
+        b.requested_at
       FROM borrows b
       JOIN users s ON s.id = b.student_id
       WHERE b.teacher_id = ?
         AND b.status IN ('completed', 'approved')
-      ORDER BY b.created_at DESC
+      ORDER BY b.requested_at DESC
       LIMIT 10
       `,
       [guruId]

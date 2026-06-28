@@ -1,0 +1,15 @@
+schema_version: 1
+module_path: configuration_system
+title: Environment-Based Configuration with Next.js and MySQL
+scope: []
+source_files:
+    - .env
+    - next.config.mjs
+    - lib/database.js
+    - lib/auth.js
+    - middleware.js
+    - jsconfig.json
+    - components.json
+    - package.json
+depends_on: []
+related_to: []

@@ -9,8 +9,8 @@ export async function POST(req) {
         const hashed = await bcrypt.hash(password, 10);
 
         await query(
-            `INSERT INTO users (name, username, email, password, role_id)
-       VALUES (?, ?, ?, ?, 2)`,
+            `INSERT INTO users (name, username, email, password, role, role_id)
+       VALUES (?, ?, ?, ?, 'guru', 2)`,
             [name, username, email, hashed]
         );
 
